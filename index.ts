@@ -20,12 +20,15 @@ app.use('/api/tasks', taskRoutes);
 
 // 3. Frontend Static Files
 // process.cwd() ensures we look in the project root, not the dist folder
+// Uses process.cwd() to anchor to 'task-backend'
 const frontendPath = path.join(process.cwd(), 'frontend', 'dist', 'task-tracker', 'browser');
+
+// Log this to your terminal so you can verify it on Render logs
+console.log('📂 Serving static files from:', frontendPath);
 
 app.use(express.static(frontendPath));
 
-// 4. SPA Routing (Catch-all)
-// Direct Regex literal fixes PathError in Express 5.0
+// Catch-all route to serve index.html for Angular routing
 app.get(/^(?!\/api).+/, (req, res) => {
     res.sendFile(path.join(frontendPath, 'index.html'));
 });
