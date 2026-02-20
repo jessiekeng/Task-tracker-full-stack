@@ -1,0 +1,138 @@
+.app-shell {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: #1f2937;
+}
+
+.badge {
+    background: #f0f0f0;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.logout-link {
+    background: transparent;
+    color: #ef4444;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+}
+
+.logout-link:hover {
+    text-decoration: underline;
+}
+
+.input-card {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline-color: #6366f1;
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    background: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover:not(:disabled) {
+    background: #4f46e5;
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f3f4f6;
+}
+
+.task-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    flex: 1;
+}
+
+.check-box {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.completed .check-box {
+    background: #6366f1;
+    border-color: #6366f1;
+    position: relative;
+}
+
+.completed span {
+    text-decoration: line-through;
+    color: #9ca3af;
+}
+
+.delete-btn {
+    background: #fee2e2;
+    color: #ef4444;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 6px;
+}
+
+.delete-btn:hover {
+    background: #fecaca;
+}
+
+.empty-state {
+    text-align: center;
+    color: #6b7280;
+    margin-top: 3rem;
+}

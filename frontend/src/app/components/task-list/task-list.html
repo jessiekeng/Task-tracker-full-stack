@@ -1,0 +1,34 @@
+<div class="app-shell">
+    <div class="header">
+        <h1>Project Tracker</h1>
+        <div class="header-right">
+            <span class="badge">{{ tasks().length }} Tasks</span>
+            <button class="logout-link" (click)="onLogout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="input-card">
+        <input [(ngModel)]="newTaskTitle" (keyup.enter)="onAdd()" placeholder="What's your next move?" />
+        <button (click)="onAdd()" [disabled]="!newTaskTitle.trim()">Add</button>
+    </div>
+
+    <div class="task-container">
+        @if (tasks().length === 0) {
+        <div class="empty-state">
+            <p>Your workspace is clear. Great job!</p>
+        </div>
+        } @else {
+        @for (task of tasks(); track task._id) {
+        <div class="task-item" [class.completed]="task.completed">
+            <div class="task-left" (click)="onToggle(task)">
+                <div class="check-box"></div>
+                <span>{{ task.title }}</span>
+            </div>
+            <button class="delete-btn" (click)="onDelete(task._id)">
+                Remove
+            </button>
+        </div>
+        }
+        }
+    </div>
+</div>
