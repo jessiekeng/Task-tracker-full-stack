@@ -21,6 +21,7 @@ app.use('/api/tasks', taskRoutes);
 // 3. Frontend Static Files
 // process.cwd() ensures we look in the project root, not the dist folder
 // Uses process.cwd() to anchor to 'task-backend'
+// Double check this line in your index.ts
 const frontendPath = path.join(process.cwd(), 'frontend', 'dist', 'task-tracker', 'browser');
 
 // Log this to your terminal so you can verify it on Render logs
