@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build:frontend": "cd frontend && npm ci && node --max_old_space_size=1024 ./node_modules/@angular/cli/bin/ng build",
+    "build:frontend": "cd frontend && npm install && npx --node-options='--max-old-space-size=1024' ng build",
     "build:backend": "tsc",
     "build": "npm run build:frontend && npm run build:backend",
     "start": "node dist/index.js"
