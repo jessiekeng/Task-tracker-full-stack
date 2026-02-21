@@ -32,3 +32,40 @@ export const createTask = async (req: any, res: Response) => {
         res.status(500).json({ message: 'Error creating task', error: error.message });
     }
 };
+
+// 3. UPDATE A TASK (toggle completed or edit fields)
+export const updateTask = async (req: any, res: Response) => {
+    try {
+        const task = await Task.findOne({ _id: req.params.id, user: req.user.id });
+
+        if (!task) {
+            return res.status(404).json({ message: 'Task not found' });
+        }
+
+        const updatedTask = await Task.findByIdAndUpdate(
+            req.params.id,
+            { $set: req.body },
+            { new: true }
+        );
+
+        res.json(updatedTask);
+    } catch (error: any) {
+        res.status(500).json({ message: 'Error updating task', error: error.message });
+    }
+};
+
+// 4. DELETE A TASK
+export const deleteTask = async (req: any, res: Response) => {
+    try {
+        const task = await Task.findOne({ _id: req.params.id, user: req.user.id });
+
+        if (!task) {
+            return res.status(404).json({ message: 'Task not found' });
+        }
+
+        await Task.findByIdAndDelete(req.params.id);
+        res.json({ message: 'Task deleted successfully' });
+    } catch (error: any) {
+        res.status(500).json({ message: 'Error deleting task', error: error.message });
+    }
+};
